@@ -1,7 +1,20 @@
-class AddLastDigits{
-public int addLastDigits(int input1,int input2){
-int last1=Math.abs(input1)%10;
-int last2=Math.abs(input2)%10;
-return last1+last2;
-}
+import java.util.Scanner;
+import java.util.function.Function;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        Function<Integer,Integer> fib=x->{
+            if(x<=1) return x;
+            int a=0,b=1,c=0;
+            for(int i=2;i<=x;i++){
+                c=a+b;
+                a=b;
+                b=c;
+            }
+            return b;
+        };
+        System.out.println(fib.apply(n));
+    }
 }
