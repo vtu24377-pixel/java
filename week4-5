@@ -1,24 +1,16 @@
-import java.util.Scanner;
+import java.util.*;
 
-public class PalindromeNumber {
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Enter a number: ");
-        int n = sc.nextInt();
-
-        int original = n;
-        int rev = 0;
-
-        while (n > 0) {
-            rev = rev * 10 + n % 10;
-            n = n / 10;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        String s=sc.next();
+        String period=s.substring(8);
+        int h=Integer.parseInt(s.substring(0,2));
+        if(period.equals("AM")){
+            if(h==12) h=0;
+        }else{
+            if(h!=12) h+=12;
         }
-
-        if (original == rev)
-            System.out.println("Palindrome Number");
-        else
-            System.out.println("Not a Palindrome Number");
+        System.out.printf("%02d%s\n",h,s.substring(2,8));
     }
 }
