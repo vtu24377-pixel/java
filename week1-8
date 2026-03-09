@@ -1,0 +1,20 @@
+import java.util.*;
+import java.util.stream.*;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        String s=sc.next();
+        Map<Character,Long> m=s.chars().mapToObj(c->(char)c)
+        .collect(Collectors.groupingBy(c->c,Collectors.counting()));
+        char r='0';
+        long max=0;
+        for(Map.Entry<Character,Long> e:m.entrySet()){
+            if(e.getValue()>max){
+                max=e.getValue();
+                r=e.getKey();
+            }
+        }
+        System.out.println(r);
+    }
+}
