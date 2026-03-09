@@ -1,24 +1,12 @@
-import java.util.Scanner;
+import java.util.*;
 
-public class PalindromeNumber {
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Enter a number: ");
-        int n = sc.nextInt();
-
-        int original = n;
-        int rev = 0;
-
-        while (n > 0) {
-            rev = rev * 10 + n % 10;
-            n = n / 10;
+public class Main{
+    public static boolean containsDuplicate(int[] nums){
+        Set<Integer> set=new HashSet<>();
+        for(int i:nums){
+            if(set.contains(i)) return true;
+            set.add(i);
         }
-
-        if (original == rev)
-            System.out.println("Palindrome Number");
-        else
-            System.out.println("Not a Palindrome Number");
+        return false;
     }
 }
