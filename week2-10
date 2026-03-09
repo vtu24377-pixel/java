@@ -1,0 +1,17 @@
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        String s=sc.next();
+        int sum=0;
+        for(int i=0;i<s.length();i++){
+            int t=0;
+            for(int j=0;j<=i;j++){
+                t+=s.charAt(j)-'0';
+            }
+            sum+=t;
+        }
+        System.out.println(sum);
+    }
+}
