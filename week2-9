@@ -1,0 +1,11 @@
+import java.time.*;
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        String zone=sc.next();
+        ZonedDateTime z=ZonedDateTime.now(ZoneId.of(zone));
+        System.out.println(z);
+    }
+}
