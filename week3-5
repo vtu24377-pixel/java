@@ -1,24 +1,19 @@
-import java.util.Scanner;
+import java.util.*;
 
-public class PalindromeNumber {
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Enter a number: ");
-        int n = sc.nextInt();
-
-        int original = n;
-        int rev = 0;
-
-        while (n > 0) {
-            rev = rev * 10 + n % 10;
-            n = n / 10;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        String a=sc.next();
+        String b=sc.next();
+        StringBuilder res=new StringBuilder();
+        int i=a.length()-1,j=b.length()-1,carry=0;
+        while(i>=0||j>=0||carry>0){
+            int sum=carry;
+            if(i>=0) sum+=a.charAt(i--)-'0';
+            if(j>=0) sum+=b.charAt(j--)-'0';
+            res.append(sum%10);
+            carry=sum/10;
         }
-
-        if (original == rev)
-            System.out.println("Palindrome Number");
-        else
-            System.out.println("Not a Palindrome Number");
+        System.out.println(res.reverse().toString());
     }
 }
