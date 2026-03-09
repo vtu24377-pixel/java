@@ -1,21 +1,21 @@
 import java.util.Scanner;
-public class AccessElement{
-public static void main(String[]args){
-Scanner sc=new Scanner(System.in);
-System.out.println("enter the size of array:");
-int size=sc.nextInt();
-int[] arr=new int[size];
-System.out.println("enter the "+size+"elements");
-for(int i=0;i<size;i++){
-arr[i]=sc.nextInt();
-}
-System.out.print("enter the index(0 to"+ (size-1)+"):");
-int index=sc.nextInt();
-if(index>=0&&index<size){
-System.out.println("the element at index"+index+":"+arr[index]);
-}else{
-System.out.println("invalid index");
-}
-sc.close();
-}
+import java.util.function.BiFunction;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        String type=sc.next();
+        BiFunction<Integer,String,Integer> f=(num,t)->{
+            int sum=0;
+            while(num>0){
+                int d=num%10;
+                if(t.equals("even") && d%2==0) sum+=d;
+                if(t.equals("odd") && d%2!=0) sum+=d;
+                num/=10;
+            }
+            return sum;
+        };
+        System.out.println(f.apply(n,type));
+    }
 }
