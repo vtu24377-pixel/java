@@ -1,18 +1,11 @@
 import java.util.*;
-public class KthSmallest {
-public static void main(String[] args) {
-Scanner sc = new Scanner(System.in);
-System.out.println("enter the size of array:");
-int n = sc.nextInt();
-int[] arr = new int[n];
-System.out.println("enter the"+n+"elements:");
-for (int i = 0; i < n; i++) {
-arr[i] = sc.nextInt();
-}
-System.out.println("enter the value of k:");
-int k = sc.nextInt();
-Arrays.sort(arr);
-System.out.println("kth smallest element:"+arr[k - 1]);
-sc.close();
-}
+
+public class Main{
+    public static boolean halvesAreAlike(String s){
+        Set<Character> v=new HashSet<>(Arrays.asList('a','e','i','o','u','A','E','I','O','U'));
+        int mid=s.length()/2,c1=0,c2=0;
+        for(int i=0;i<mid;i++) if(v.contains(s.charAt(i))) c1++;
+        for(int i=mid;i<s.length();i++) if(v.contains(s.charAt(i))) c2++;
+        return c1==c2;
+    }
 }
