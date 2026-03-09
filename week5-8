@@ -1,0 +1,26 @@
+import java.util.*;
+
+class Solution{
+    public List<String> findAndReplacePattern(String[] words,String pattern){
+        List<String> res=new ArrayList<>();
+        for(String w:words){
+            if(match(w,pattern)) res.add(w);
+        }
+        return res;
+    }
+
+    boolean match(String w,String p){
+        int[] m1=new int[256];
+        int[] m2=new int[256];
+        for(int i=0;i<w.length();i++){
+            char a=w.charAt(i),b=p.charAt(i);
+            if(m1[a]==0 && m2[b]==0){
+                m1[a]=b;
+                m2[b]=a;
+            }else{
+                if(m1[a]!=b) return false;
+            }
+        }
+        return true;
+    }
+}
