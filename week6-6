@@ -1,0 +1,17 @@
+import java.util.*;
+
+class Solution{
+    public List<Integer> findAnagrams(String s,String p){
+        List<Integer> res=new ArrayList<>();
+        int[] a=new int[26];
+        int[] b=new int[26];
+        for(char c:p.toCharArray()) a[c-'a']++;
+        int k=p.length();
+        for(int i=0;i<s.length();i++){
+            b[s.charAt(i)-'a']++;
+            if(i>=k) b[s.charAt(i-k)-'a']--;
+            if(Arrays.equals(a,b)) res.add(i-k+1);
+        }
+        return res;
+    }
+}
