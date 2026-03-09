@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class Solution{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        while(t-->0){
+            int n=sc.nextInt();
+            int[] arr=new int[n];
+            for(int i=0;i<n;i++) arr[i]=sc.nextInt();
+            int maxEnd=arr[0],maxSo=arr[0];
+            int sum=0,nonCont=0,max=arr[0];
+            for(int i=0;i<n;i++){
+                sum=Math.max(arr[i],sum+arr[i]);
+                maxSo=Math.max(maxSo,sum);
+                if(arr[i]>0) nonCont+=arr[i];
+                if(arr[i]>max) max=arr[i];
+            }
+            if(nonCont==0) nonCont=max;
+            System.out.println(maxSo+" "+nonCont);
+        }
+    }
+}
